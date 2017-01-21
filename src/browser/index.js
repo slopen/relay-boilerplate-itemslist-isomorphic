@@ -10,14 +10,13 @@ import {
 
 import routerRelay from 'react-router-relay';
 
+import NetworkLayer from './network';
 import routes from 'components/routes';
 
 
-Relay.injectNetworkLayer (
-    new Relay.DefaultNetworkLayer ('//localhost:9000/graphql')
-);
+Relay.injectNetworkLayer (NetworkLayer);
 
-ReactDOM.render(
+ReactDOM.render (
     <Router
         history={history}
         routes={routes}
