@@ -5,9 +5,9 @@ import UnlinkMutation from 'mutations/unlink';
 
 class LinkedItem extends ItemPreview {
 	removeItem = (e) => {
-		const {item, tag} = this.props;
+		const {item, tag, relay} = this.props;
 
-		Relay.Store.commitUpdate (
+		relay.commitUpdate (
 			new UnlinkMutation ({
 				tag: tag,
 				item: item

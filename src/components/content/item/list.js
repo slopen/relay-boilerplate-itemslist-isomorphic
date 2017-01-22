@@ -27,7 +27,9 @@ class ItemsList extends List {
 	}
 
 	addItem = (e) => {
-		Relay.Store.commitUpdate (
+		const {relay} = this.props;
+
+		relay.commitUpdate (
 			new CreateItemMutation ({
 				name: 'new item',
 				content: 'new item content',

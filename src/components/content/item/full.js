@@ -55,15 +55,15 @@ class Item extends Component {
 	}
 
 	onTagAdd = (id, e) => {
-		const {item, tags} = this.props.viewer;
+		const {item, tags, relay} = this.props.viewer;
 		const {node} = tags.edges.find (
 			({node}) => node.id === id
 		);
 
-		Relay.Store.commitUpdate (
+		relay.commitUpdate (
 			new LinkMutation ({
 				tag: node,
-				item: item
+				item
 			})
 		);
 
@@ -71,10 +71,10 @@ class Item extends Component {
 	}
 
 	onSave = (e) => {
-		const {item} = this.props.viewer;
+		const {item, relay} = this.props.viewer;
 		const {name, content} = this.state;
 
-		Relay.Store.commitUpdate (
+		relay.commitUpdate (
 			new UpdateItemMutation ({item, name, content})
 		);
 

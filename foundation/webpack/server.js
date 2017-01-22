@@ -1,46 +1,35 @@
-import Webpack from 'webpack';
-import path from 'path';
+const Webpack = require ('webpack');
+const path = require ('path');
 
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
-
+const ExtractTextPlugin = require ('extract-text-webpack-plugin');
+const nodeExternals = require ('webpack-node-externals');
 
 const SRC_PATH = path.resolve (__dirname, '../../src');
-const BUILD_PATH = path.resolve (__dirname, '../../build/client');
-const STATIC_PATH = '/';
+const BUILD_PATH = path.resolve (__dirname, '../../build/server');
 
-export default {
+module.exports = {
 
-	entry: `${SRC_PATH}/browser/index.js`,
+	entry: `${SRC_PATH}/server/index.js`,
 
 	output: {
 		path: BUILD_PATH,
-		filename: 'bundle.js',
-		publicPath: STATIC_PATH
+		filename: 'index.js'
 	},
 
 	devServer: {
-		contentBase: BUILD_PATH,
-		compress: true,
-		historyApiFallback: true,
-    	inline: true,
-		port: 8080,
-  		proxy: {
-  			'/': "http://localhost:8000"
-  		}
+		progress: true,
+		inline: true
 	},
+
+	target: 'node',
+
+	externals: [
+		nodeExternals ()
+	],
 
 	devtool: 'source-map',
 
 	plugins: [
-		// new CopyWebpackPlugin ([{
-		// 	from: 'src/html'
-		// }]),
-		new Webpack.DllReferencePlugin ({
-	      	context: __dirname,
-			manifest: require (`${SRC_PATH}/vendor/vendor-manifest.json`)
-		}),
-		new Webpack.HotModuleReplacementPlugin,
 		new ExtractTextPlugin ('styles.css')
 	],
 
@@ -74,10 +63,6 @@ export default {
 			{
 				test: /\.less$/,
 				loader: ExtractTextPlugin.extract (['css', 'less'])
-			},
-			{
-				test: /\.css$/,
-				loader: ExtractTextPlugin.extract (['css'])
 			}
 		]
 	},

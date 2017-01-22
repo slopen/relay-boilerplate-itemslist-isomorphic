@@ -8,9 +8,9 @@ import RemoveItemMutation from 'mutations/item/remove';
 export class ItemPreview extends Component {
 
 	removeItem = (e) => {
-		const {item, viewer} = this.props;
+		const {item, viewer, relay} = this.props;
 
-		Relay.Store.commitUpdate (
+		relay.commitUpdate (
 			new RemoveItemMutation({item, viewer})
 		);
 

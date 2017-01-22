@@ -463,7 +463,7 @@ const mutationType = new GraphQLObjectType ({
  * Finally, we construct our schema (whose starting query type is the query
  * type we defined above) and export it.
  */
-export const Schema = new GraphQLSchema ({
+export const schema = new GraphQLSchema ({
 	query: queryType,
 	mutation: mutationType
 });
