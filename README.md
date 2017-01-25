@@ -12,7 +12,7 @@ extract CSS as separate file
 
 
 [DllPlugin](https://github.com/webpack/docs/wiki/list-of-plugins#dllplugin) -
-keep rarely updated dependencies in vendor.js file:
+keep rarely updated dependencies in vendor.js file
 
 [react-relay-network-layer](https://github.com/nodkz/react-relay-network-layer) - batch Relay queries
 
