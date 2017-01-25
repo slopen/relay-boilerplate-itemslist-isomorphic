@@ -55,7 +55,8 @@ class Item extends Component {
 	}
 
 	onTagAdd = (id, e) => {
-		const {item, tags, relay} = this.props.viewer;
+		const {relay} = this.props;
+		const {item, tags} = this.props.viewer;
 		const {node} = tags.edges.find (
 			({node}) => node.id === id
 		);
@@ -71,7 +72,8 @@ class Item extends Component {
 	}
 
 	onSave = (e) => {
-		const {item, relay} = this.props.viewer;
+		const {relay} = this.props;
+		const {item} = this.props.viewer;
 		const {name, content} = this.state;
 
 		relay.commitUpdate (

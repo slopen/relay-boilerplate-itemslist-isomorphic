@@ -11,7 +11,7 @@ class App extends Component {
 			<div>
 				<Header routes={routes} viewer={viewer}/>
 
-				<div className="content container">
+				<div id="content" className="content container">
 					{children}
 				</div>
 			</div>
