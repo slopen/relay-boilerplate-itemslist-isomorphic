@@ -17,35 +17,54 @@ const viewerQueries = {
     `
 };
 
+const onEnter = (nextState, replace, callback) => {
+    if (typeof window !== 'undefined') {
+        // clientside
+
+        callback ();
+    } else {
+        // serverside
+
+        callback ();
+    }
+}
+
+
 export default (
     <Route
         path="/"
         component={App}
+        onEnter={onEnter}
         queries={viewerQueries}>
 
         <IndexRoute
             component={ItemsList}
+            onEnter={onEnter}
             queries={viewerQueries}/>
 
         <Route
             path="item"
             component={ItemsList}
+            onEnter={onEnter}
             queries={viewerQueries}>
         </Route>
 
         <Route
             path="item/:id"
             component={Item}
+            onEnter={onEnter}
             queries={viewerQueries}/>
 
         <Route
             path="tag"
             component={TagsList}
+            onEnter={onEnter}
             queries={viewerQueries}/>
 
         <Route
             path="tag/:id"
             component={Tag}
+            onEnter={onEnter}
             queries={viewerQueries}/>
 
     </Route>

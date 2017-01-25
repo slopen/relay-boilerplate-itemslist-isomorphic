@@ -2,7 +2,7 @@ import Webpack from 'webpack';
 import path from 'path';
 
 
-const BUILD_PATH = path.resolve (__dirname, '../../build');
+const BUILD_PATH = path.resolve (__dirname, '../../build/client');
 const SRC_PATH = path.resolve (__dirname, '../../src/vendor');
 
 export default {
