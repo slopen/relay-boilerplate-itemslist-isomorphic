@@ -2,5 +2,4 @@ node_modules/
 .DS_Store
 *.log
 build/
-src/data/schema.json
 src/vendor/vendor-manifest.json
