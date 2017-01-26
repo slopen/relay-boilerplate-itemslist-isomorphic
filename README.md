@@ -19,7 +19,7 @@ keep rarely updated dependencies in vendor.js file
 [isomorphic-relay-router](https://github.com/denvned/isomorphic-relay-router) - isomorphic rendering
 
 
-## Setup
+## Init
 
 ```
 git clone https://github.com/slopen/relay-boilerplate-itemslist-isomorphic
