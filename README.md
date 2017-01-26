@@ -22,8 +22,9 @@ keep rarely updated dependencies in vendor.js file
 ## Setup
 
 ```
+git clone https://github.com/slopen/relay-boilerplate-itemslist-isomorphic
+cd relay-boilerplate-itemslist-isomorphic
 npm i
-npm run build:vendor
 ```
 
 ## Start GraphQL & Isomorphic Render server
